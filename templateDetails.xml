@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="template">
+    <name>test</name>
+    <creationDate>2016-01-31</creationDate>
+    <author>Henrique Macosi</author>
+    <authorEmail>henriquemacosi@gmail.com</authorEmail>
+    <authorUrl>http://www.henriquemacosi.com</authorUrl>
+    <copyright>Henrique Macosi 2014</copyright>
+    <license>GNU/GPL</license>
+    <version>1.0.1</version>
+    
+    <files>
+        <!-- files -->
+        >
+        <filename>index.php</filename>
+        
+        <filename>templateDetails.xml</filename>
+        <!-- folder -->
+        <folder>css</folder>
+        
+    </files>
+    <positions>
+    <position>position-1</position>
+    <position>position-2</position>
+    <position>position-3</position>
+    <position>position-4</position>
+    <position>position-5</position>
+    <position>position-6</position>
+    </positions>
+         
+</extension>
