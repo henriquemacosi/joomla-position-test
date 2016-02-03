@@ -7,99 +7,90 @@ $p1 = $this->countModules("position-1");
 $p2 = $this->countModules("position-2");
 $p3 = $this->countModules("position-3");
 $p4 = $this->countModules("position-4");
-$p5 = $this->countModules("position-5");
-$p6 = $this->countModules("position-6");
 
 
-$position = array ( $p1, $p2, $p3, $p4, $p5, $p6);
 
-for ( $x = 0; $x < 6; $x++ ) {
+$position = array ( $p1, $p2, $p3, $p4 );
+
+for ( $x = 0; $x <4; $x++ ) {
   if ($position[$x] > 0) { $position[$x] = 1; } else { $position[$x] = 0; }
 }
 
-$row1  = $position[0] + $position[1] +  $position[2] ;
-$row2  = $position[3] + $position[4] +  $position[5] ;
+$row1  = $position[0] + $position[1] +  $position[2] + $position[3] ;
+
+function countColumns($this) {
+
+switch ($this):
+    case 3:
+        echo "4";
+        break;
+    case 2:
+        echo "6";
+        break;
+    case 1:
+        echo "12";
+        break;
+    default:
+        echo "12";
+endswitch;
+}
+
+$colsPosition1 = $this->params->get('cols_position_1');
+$colsPosition2 = $this->params->get('cols_position_2');
+$colsPosition3 = $this->params->get('cols_position_3');
+$colsPosition4 = $this->params->get('cols_position_4');
 
 ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="<?php echo $this->language; ?>">
 	<head>
 		 <jdoc:include type="head" />
 		 <style>
-		 	.wrapper {
-		 		
-		 	}
-		 	.row {
-		 		width: 1000px;
-		 		background-color: #ccc;
-		 		margin: 0 auto;
-		 		overflow: auto;
-
-		 	}
-		 	.col {
-		 		float: left;
-		 		padding: 0px 15px;
-		 		box-sizing: border-box;
-		 	}
+		 .wrapper {
+		 	width: 80%;
+		 	margin: 0 auto;
+		 }
 		 	.moduletable {
 		 		background-color: lime;
 		 	}
-		 	.w-100 {
-		 		width: 100%;
-		 	}
-		 	.w-50 {
-		 		width: 50%;
-		 	}
-		 	.w-25 {
-		 		width: 25%;
-		 	}
+		 	
 		 </style>
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	</head>
 	<body>
 		 <div class="wrapper">
 		 	<div class="row">
-		 	<h1>Positions on row 1: <?php echo $row1 ;?></h1>
+		 		<p>Positions on row-1: <?php echo $row1 ;?></p>
+		 		<p>Modules on row-1: <?php echo ($p1 + $p2 + $p3+ $p4);?></p>
 				<?php if($p1) : ?>
-				<div class="col w-<?php if($row1 == 3) {echo '50';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>">
+				<div class="col-md-<?php if($row1 == 4){echo $colsPosition1 ;} else countColumns($row1);?>">
 					<jdoc:include type="modules" name="position-1" style="xhtml" />
-					<p>width: <?php if($row1 == 3) {echo '50';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>%</p>
+					<p>col-md-<?php if($row1 == 4){echo $colsPosition1 ;} else countColumns($row1);?></p>
 				</div>
 	    		<?php endif; ?>
+				
 				<?php if($p2) : ?>
-				<div class="col w-<?php if($row1 == 3) {echo '25';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>">
+				<div class="col-md-<?php if($row1 == 4){echo $colsPosition2 ;} else countColumns($row1);?>">
 					<jdoc:include type="modules" name="position-2" style="xhtml" />
-					<p>width: <?php if($row1 == 3) {echo '25';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>%</p>
+					<p>col-md-<?php if($row1 == 4){echo $colsPosition2 ;} else countColumns($row1);?></p>
 				</div>
 	    		<?php endif; ?>
 				<?php if($p3) : ?>
-				<div class="col w-<?php if($row1 == 3) {echo '25';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>">
+				<div class="col-md-<?php if($row1 == 4){echo $colsPosition3 ;} else countColumns($row1);?>">
 					<jdoc:include type="modules" name="position-3" style="xhtml" />
-					<p>width: <?php if($row1 == 3) {echo '25';}  elseif($row1 == 2) {echo '50';} else {echo'100';} ;?>%</p>
-
+					<p>col-md-<?php if($row1 == 4){echo $colsPosition3 ;} else countColumns($row1);?></p>
 				</div>
 	    		<?php endif; ?>
-		 	</div>
-		 	<div class="row">
-		 		<h1>Positions on row 2: <?php echo $row2 ;?></h1>
 				<?php if($p4) : ?>
-				<div class="col" style="width:<?php echo 100/$row2;?>%;">
+				<div class="col-md-<?php if($row1 == 4){echo $colsPosition4 ;} else countColumns($row1);?>">
 					<jdoc:include type="modules" name="position-4" style="xhtml" />
-					<p>width: <?php echo 100/$row2;?>%</p>
-				</div>
-	    		<?php endif; ?>
-				<?php if($p5) : ?>
-				<div class="col" style="width:<?php echo 100/$row2;?>%;">
-					<jdoc:include type="modules" name="position-5" style="xhtml" />
-					<p>width: <?php echo 100/$row2;?>%</p>
-				</div>
-	    		<?php endif; ?>
-				<?php if($p6) : ?>
-				<div class="col" style="width:<?php echo 100/$row2;?>%;">
-					<jdoc:include type="modules" name="position-6" style="xhtml" />
-					<p>width: <?php echo 100/$row2;?>%</p>
+					<p>col-md-<?php if($row1 == 4){echo $colsPosition4 ;} else countColumns($row1);?></p>
 				</div>
 	    		<?php endif; ?>
 		 	</div>
+
+		 	
     	</div>
 		
 	</body>

@@ -17,15 +17,27 @@
         <filename>templateDetails.xml</filename>
         <!-- folder -->
         <folder>css</folder>
-        
+        <folder>html</folder>
     </files>
     <positions>
     <position>position-1</position>
     <position>position-2</position>
     <position>position-3</position>
     <position>position-4</position>
-    <position>position-5</position>
-    <position>position-6</position>
     </positions>
+    <config>
+
+         <fields name="params">
+            <!-- layout config -->
+        <fieldset name="TPL_LAYOUT_CONFIGURATION" label="TPL_LAYOUT_CONFIGURATION">
+                
+                <field name="cols_position_1" type="integer" default="3" label="TPL_POSTION_1_COLUMNS" description="TPL_POSTION_1_COLUMNS_DESC" first="1" last="12" step="1"/>
+                <field name="cols_position_2" type="integer" default="3" label="TPL_POSTION_2_COLUMNS" description="TPL_POSTION_2_COLUMNS_DESC" first="1" last="12" step="1"/>
+                <field name="cols_position_3" type="integer" default="3" label="TPL_POSTION_3_COLUMNS" description="TPL_POSTION_3_COLUMNS_DESC" first="1" last="12" step="1"/>
+                <field name="cols_position_4" type="integer" default="3" label="TPL_POSTION_4_COLUMNS" description="TPL_POSTION_4_COLUMNS_DESC" first="1" last="12" step="1"/>
+                                
+            </fieldset>
+            </fields>
+    </config>
          
 </extension>
